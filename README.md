@@ -2,7 +2,7 @@
 - [x] Web server
 - [x] Multiple clients
 - [x] Handles clients without ping
-- [x] Tested on Windows and Linux
+- [x] Tested on Windows 11 and Kali Linux
 - [ ] Clients CPU , GPU, WiFi usage on plots
 
 ![image](https://github.com/Bt08s/PYNet/assets/68190921/cf597cfa-072c-4ef1-8bd0-791ceb1841ba)
