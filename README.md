@@ -1,4 +1,4 @@
-- [x] Loads 'socket_host, socket_port, web_host, web_port' from config.env
+- [x] Server loads 'socket_host, socket_port, web_host, web_port' from config.env
 - [x] Web server
 - [x] Multiple clients
 - [x] Handles clients without ping
