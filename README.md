@@ -1,1 +1,1 @@
-![image](https://github.com/Bt08s/PYNet/assets/68190921/9f69944d-4b88-44b6-8749-1713a14da247)
+![image](https://github.com/Bt08s/PYNet/assets/68190921/cf597cfa-072c-4ef1-8bd0-791ceb1841ba)
