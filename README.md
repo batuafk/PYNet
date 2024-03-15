@@ -10,6 +10,6 @@
 - [x] Send self python codes by adding #exec ip:port to the first line in the input
 - [ ] Clients CPU, GPU, WiFi usages on plots
 
-![image](https://github.com/Bt08s/PYNet/assets/68190921/cf597cfa-072c-4ef1-8bd0-791ceb1841ba)
+![image](https://github.com/Bt08s/PYNet/assets/68190921/fb2e3236-81fd-4aea-8f81-63f8f5bcfdfa)
 
-![image](https://github.com/Bt08s/PYNet/assets/68190921/9067996b-483f-4484-9b89-e73732147699)
+![image](https://github.com/Bt08s/PYNet/assets/68190921/cf597cfa-072c-4ef1-8bd0-791ceb1841ba)
