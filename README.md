@@ -10,4 +10,4 @@
 - [ ] Clients CPU, GPU, WiFi usages on plots
 - [ ] Cant run Client if its already running
 
-![Screenshot 2024-03-15 004208](https://github.com/Bt08s/PYNet/assets/68190921/0fe36265-8b11-4422-8177-a323b7823c4f)
+![image](https://github.com/Bt08s/PYNet/assets/68190921/c4e9a1e3-ec26-4090-b086-bd92055401a5)
