@@ -1,3 +1,6 @@
+> [!WARNING]
+> If Server.py is not opening run this cmd: ``taskkill /f /im python.exe``
+
 - [x] Server loads 'socket_host, socket_port, web_host, web_port' from config.env
 - [x] Web server
 - [x] Multiple clients
