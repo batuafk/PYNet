@@ -8,3 +8,4 @@
 - [x] Send python codes by adding "#exec" to the first line in the input
 - [x] Send self python codes by adding "#exec ip:port" to the first line in the input
 - [ ] Clients CPU, GPU, WiFi usages on plots
+- [ ] Cant run Client if its already running
