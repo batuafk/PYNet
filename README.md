@@ -1,7 +1,7 @@
 > [!WARNING]
 > If Server.py is not opening run this cmd: ``taskkill /f /im python.exe`` or ``pkill python``
 >
-> Send #exec codes cautiously to prevent the client from getting stuck in an infinite timeout.
+> Send #exec codes cautiously to prevent the client from getting stuck in an infinite timeout
 
 - [x] Server loads 'socket_host, socket_port, web_host, web_port' from config.env
 - [x] Handles clients without ping
