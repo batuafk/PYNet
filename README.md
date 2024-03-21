@@ -6,7 +6,7 @@
 - [x] Client copies himself to shell:startup if OS is Windows
 - [x] Send python codes by adding "#exec" to the first line in data input
 - [x] Send self python codes by adding "#exec ip:port" to the first line in data input
-- [x] If your client doesn't receive output from your code, it sends b"no output"
+- [x] If your client doesn't receive output from your #exec code, it sends b"no output"
 - [ ] Clients CPU, GPU, WiFi usages on plots
 - [ ] Cant run Client if its already running
 
